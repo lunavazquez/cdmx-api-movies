@@ -1,5 +1,5 @@
 const getMovies = (search) => {
-  return fetch(`http://www.omdbapi.com/?apikey=a6cb657c&s=${search}`)
+  return fetch(`https://www.omdbapi.com/?apikey=a6cb657c&s=${search}`)
     .then(response => response.json());
 };
 // TODO: al terminar esta iteracion hacer un git tag
@@ -76,7 +76,7 @@ const loadimgonfail = (event) => {
 
 const openModal = (imdbID) => {
   // aqui poner fetch igula que postman
-  return fetch(`http://www.omdbapi.com/?apikey=a6cb657c&i=${imdbID}`)
+  return fetch(`https://www.omdbapi.com/?apikey=a6cb657c&i=${imdbID}`)
     .then(response => response.json())
     .then((movie) => {
       console.log(movie);
