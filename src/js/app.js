@@ -51,12 +51,12 @@ document.getElementById('btn-wonderwoman').addEventListener('click', () => getMo
 renderCards = (movies) => {
   return movies.map((movie) => {
     return (
-      `<div class="col-sm-3">
+      `<div class="col-sm-2">
         <div class="card movie">
           <img class="card-img-top" src="${movie.Poster}" alt="Card image cap" onerror="loadimgonfail(event)"/>
           <div class="card-body">
             <h5 class="card-title">${movie.Title}</h5>
-            <a href="#" class="btn btn-primary btn-movie">Go to the Movie</a>
+            <a href="#" class="btn btn-primary btn-movie" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="openModal('${movie.imdbID}')">Go to the Movie</a>
           </div>
           </div>
       </div>`
@@ -66,7 +66,6 @@ renderCards = (movies) => {
     {/* <div class="card-body ">
         <p class="card-text">${movie.Title}</p>
       </div>`; */}
-
   }).join('');
 };
 
@@ -74,3 +73,42 @@ const loadimgonfail = (event) => {
   console.log('No hay imagen');
   return event.target.src = '../img/camara.jpg';
 };
+
+const openModal = (imdbID) => {
+  // aqui poner fetch igula que postman
+  return fetch(`http://www.omdbapi.com/?apikey=a6cb657c&i=${imdbID}`)
+    .then(response => response.json())
+    .then((movie) => {
+      console.log(movie);
+      document.getElementById('modal-dialog').innerHTML = (`
+          <div class="modal-content ">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">${movie.Title}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+              <div class="row">
+                <div class="modal-body col-md-6">
+                  <img class="card-img-top modal-poster" src="${movie.Poster}" alt="Card image cap" onerror="loadimgonfail(event)"/>
+                </div>
+                <div class="modal-body col-md-6">
+                  <p class="movie-parrafo">Año: </p><p>${movie.Year}</p>
+                  <p class="movie-parrafo">Duración: </p><p>${movie.Runtime}</p>
+                  <p class="movie-parrafo">Actores: </p><p>${movie.Actors}</p>
+                  <p class="movie-parrafo">Director: </p><p>${movie.Director}</p>
+                  <p class="movie-parrafo">Lenguaje: </p><p>${movie.Language}</p>
+                  <p class="movie-parrafo">Sinopsis: </p><p>${movie.Plot}</p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">Watch Movie</button>
+              </div>
+          </div>
+
+
+      `);
+      return true;
+    })
+};
+

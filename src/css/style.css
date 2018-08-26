@@ -15,11 +15,26 @@
   width: 100%;
 }
 
-.card-img-top{
+.card-img-top {
   height: 350px;
+}
+
+.modal-poster {
+  height: 500px;
 }
 
 .card-body{
   height: 140px;
 }
+
+.movie-parrafo{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal-content{
+  padding: 10px;
+}
+
+
 
