@@ -1,0 +1,25 @@
+.bg-dark {
+  color:  white;
+}
+
+.movie{
+  margin: 10px auto;
+}
+
+.card-title{
+  text-align: center;
+  height: 48px;
+}
+
+.btn-movie {
+  width: 100%;
+}
+
+.card-img-top{
+  height: 350px;
+}
+
+.card-body{
+  height: 140px;
+}
+
