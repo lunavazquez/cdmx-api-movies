@@ -1,7 +1,7 @@
 const login = (email, password) => {
   return firebase.auth().signInWithEmailAndPassword(email, password).then((response) => {
     localStorage.setItem('session', JSON.stringify(response));
-    return location.href = '/';
+    return location.href = 'index.html';
   }).catch((error) => {
     alert('Email o contraseña inváldos.');
     return console.error(error);
@@ -12,7 +12,7 @@ const loginGoogle = () => {
   let provider = new firebase.auth.GoogleAuthProvider();
   return firebase.auth().signInWithPopup(provider).then((response) => {
     localStorage.setItem('session', JSON.stringify(response));
-    return location.href = '/';
+    return location.href = 'index.html';
   }).catch((error) => {
     alert('Email o contraseña inváldos.');
     return console.error(error);
