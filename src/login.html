@@ -5,57 +5,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Movies</title>
+  <title>Iniciar sesión</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
-
 </head>
 
 <body>
-  <nav class="navbar navbar-dark bg-dark">
-    <!-- Navbar content -->
-    <h1>Oh My Movie!</h1>
-    <button type="button" class="btn btn-outline-primary" id="signOut">Cerrar sesión</button>
-
-  </nav>
-
-  <!-- botones -->
-  <button type="button" class="btn btn-outline-primary" id="btn-batman">Batman</button>
-  <button type="button" class="btn btn-outline-primary" id="btn-spiderman">Spiderman</button>
-  <button type="button" class="btn btn-outline-primary" id="btn-wonderwoman">Superman</button>
-  <button type="button" class="btn btn-outline-primary" id="btn-crow">Crow</button>
-
-
-  <div class="row" id="peliculas">
-    <!-- TEMPLETE -->
-
-    <!-- <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-5">
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-      </div>
-    </div> -->
-    <!-- <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="passwordInput" placeholder="Password">
         </div>
-      </div>
-    </div> -->
-  </div>
-
-  <!-- Modal -->
-  <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg" id="modal-dialog" role="document">
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <button id="loginGoogle">Iniciar con google</button>
     </div>
+    <div class="col"></div>
   </div>
+
 
   <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
   <script>
@@ -80,7 +60,7 @@
     crossorigin="anonymous"></script>
 
   <!-- Enlazar documento js  -->
-  <script src="./js/app.js"></script>
+  <script src="./js/login.js"></script>
 </body>
 
 </html>

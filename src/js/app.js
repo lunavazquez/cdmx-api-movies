@@ -1,3 +1,7 @@
+if (!localStorage.hasOwnProperty('session') && location.pathname.indexOf('login') < 0) {
+  location.href = './login.html';
+}
+
 const getMovies = (search) => {
   return fetch(`https://www.omdbapi.com/?apikey=a6cb657c&s=${search}`)
     .then(response => response.json());
@@ -46,6 +50,16 @@ document.getElementById('btn-wonderwoman').addEventListener('click', () => getMo
   // console.log(data);
   document.getElementById('peliculas').innerHTML = renderCards(data.Search);
 }));
+
+document.getElementById('signOut').addEventListener('click', () => {
+  localStorage.removeItem('session');
+  return firebase.auth().signOut().then(function () {
+    return location.href = 'login.html';
+  }).catch(function (error) {
+    alert('Ocurrió un error al cerrar sesión.')
+    return console.error(error);
+  });
+});
 
 // Función que regresa las peliculas
 renderCards = (movies) => {
@@ -105,10 +119,8 @@ const openModal = (imdbID) => {
                   <button type="button" class="btn btn-primary">Watch Movie</button>
               </div>
           </div>
-
-
       `);
       return true;
-    })
+    });
 };
 
