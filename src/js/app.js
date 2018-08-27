@@ -85,7 +85,7 @@ renderCards = (movies) => {
 
 const loadimgonfail = (event) => {
   console.log('No hay imagen');
-  return event.target.src = '../img/camara.jpg';
+  return event.target.src = './img/camara.jpg';
 };
 
 const openModal = (imdbID) => {
